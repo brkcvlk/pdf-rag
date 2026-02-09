@@ -1,0 +1,6 @@
+langchain-text-splitters
+langchain-community
+langchain-huggingface
+langchain-qdrant
+qdrant-client
+sentence-transformers
