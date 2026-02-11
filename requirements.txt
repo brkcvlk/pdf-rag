@@ -1,6 +1,7 @@
 langchain-text-splitters
 langchain-community
 langchain-huggingface
+langchain-ollama
 langchain-qdrant
 qdrant-client
 sentence-transformers
