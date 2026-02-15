@@ -40,5 +40,5 @@ def query(request: QueryRequest) -> QueryResponse:
     if vector_store is None or llm is None:
         raise HTTPException(status_code=500, detail="Server not initialized.")
 
-    answer, sources = answer_question(request.question, vector_store, llm)
+    answer, sources, _ = answer_question(request.question, vector_store, llm)
     return QueryResponse(answer=answer, sources=[SourceItem(**s) for s in sources])

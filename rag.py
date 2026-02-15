@@ -46,4 +46,4 @@ def answer_question(
         {"source": doc.metadata.get("source"), "page": doc.metadata.get("page")}
         for doc in docs
     ]
-    return answer.content, sources
+    return answer.content, sources, context
