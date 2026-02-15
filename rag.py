@@ -26,10 +26,10 @@ def get_vector_store() -> QdrantVectorStore:
 
 def answer_question(
     question: str, vector_store: QdrantVectorStore, llm: ChatOllama
-) -> Tuple[str, List[Dict[str, Any]]]:
+) -> Tuple[str, List[Dict[str, Any]], str]:
     docs = vector_store.similarity_search(question, k=TOP_K)
     if not docs:
-        return "No relevant context found in the documents.", []
+        return "No relevant context found in the documents.", [], ""
 
     context = "\n\n".join(
         [f"Source {i + 1}:\n{doc.page_content}" for i, doc in enumerate(docs)]
