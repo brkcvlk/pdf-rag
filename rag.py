@@ -4,7 +4,7 @@ from langchain_ollama import ChatOllama
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_qdrant import QdrantVectorStore
 
-LLM_MODEL = "llama3:8b-instruct-q4_0"
+LLM_MODEL = "gemma3:4b"
 EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 QDRANT_URL = "http://localhost:6333"
 COLLECTION_NAME = "documents"
