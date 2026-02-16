@@ -1,9 +1,10 @@
 from langchain_ollama import ChatOllama
 from typing import Any, Dict, List
 from pathlib import Path
+from config import config
+import mlflow
 import json
 import time
-import mlflow
 
 from rag import (
     EMBED_MODEL,
@@ -15,9 +16,9 @@ from rag import (
 )
 
 EVALSET_PATH = Path("example_evalset.json")
-MLFLOW_EXPERIMENT = "rag-eval"
+MLFLOW_EXPERIMENT = config["project"]["experiment_name"]
 MLFLOW_TRACKING_DIR = Path("mlruns")
-LLM_MODEL_JUDGE = "phi3:mini"
+LLM_MODEL_JUDGE = config["model"]["judge"]
 
 def get_llm_judge() -> ChatOllama:
     return ChatOllama(model=LLM_MODEL_JUDGE, temperature=0.0)

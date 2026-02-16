@@ -1,14 +1,14 @@
-from typing import Any, Dict, List, Tuple
-
-from langchain_ollama import ChatOllama
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_qdrant import QdrantVectorStore
+from typing import Any, Dict, List, Tuple
+from langchain_ollama import ChatOllama
+from config import config
 
-LLM_MODEL = "gemma3:4b"
-EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
-QDRANT_URL = "http://localhost:6333"
-COLLECTION_NAME = "documents"
-TOP_K = 4
+LLM_MODEL = config["model"]["llm"] 
+EMBED_MODEL = config["model"]["embedding"]
+QDRANT_URL = config["qdrant"]["url"]
+COLLECTION_NAME = config["qdrant"]["collection_name"]
+TOP_K = config["retrieval"]["top_k"]
 
 
 def get_llm() -> ChatOllama:

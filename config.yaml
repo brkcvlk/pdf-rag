@@ -1,0 +1,19 @@
+project:
+  name: pdf-rag
+  experiment_name: rag-eval
+
+model:
+  embedding: sentence-transformers/all-MiniLM-L6-v2
+  llm: gemma3:4b
+  judge: phi3:mini
+
+qdrant:
+  url: http://localhost:6333
+  collection_name: documents
+
+chunking:
+  chunk_size: 500
+  chunk_overlap: 150
+
+retrieval:
+  top_k: 4

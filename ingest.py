@@ -1,20 +1,19 @@
-import os
-from pathlib import Path
-from typing import List, Any
-
 from langchain_community.document_loaders import DirectoryLoader, PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_qdrant import QdrantVectorStore
 from langchain_huggingface import HuggingFaceEmbeddings
-
+from langchain_qdrant import QdrantVectorStore
 from qdrant_client import QdrantClient
+from typing import List, Any
+from config import config
+from pathlib import Path
+import os
 
 DOCS_DIR = Path("docs")
-CHUNK_SIZE = 500
-CHUNK_OVERLAP = 150
-EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
-QDRANT_URL = "http://localhost:6333"
-COLLECTION_NAME = "documents"
+CHUNK_SIZE = config["chunking"]["chunk_size"]
+CHUNK_OVERLAP = config["chunking"]["chunk_overlap"]
+EMBED_MODEL = config["model"]["embedding"]
+QDRANT_URL = config["qdrant"]["url"]
+COLLECTION_NAME = config["qdrant"]["collection_name"]
 
 client = QdrantClient(url=QDRANT_URL, prefer_grpc=False)
 
