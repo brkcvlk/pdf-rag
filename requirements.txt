@@ -8,3 +8,4 @@ sentence-transformers==5.2.2
 fastapi==0.128.7
 uvicorn==0.40.0
 mlflow==3.9.0
+pyyaml==6.0.3
