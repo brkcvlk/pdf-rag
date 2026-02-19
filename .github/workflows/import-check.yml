@@ -23,7 +23,8 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Import check
-        run: python -c "from rag import answer_question; print('answer_question OK')"
-        run: python -c "from rag import get_llm; print('get_llm OK')"
-        run: python -c "from rag import get_vector_store; print('get_vector_store OK')"
-        run: python -c "from config import config; print('config OK')"
+        run: |
+          python -c "from rag import answer_question; print('answer_question OK')"
+          python -c "from rag import get_llm; print('get_llm OK')"
+          python -c "from rag import get_vector_store; print('get_vector_store OK')"
+          python -c "from config import config; print('config OK')"
